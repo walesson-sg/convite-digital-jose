@@ -11,45 +11,50 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 155vh;
-      background-color: #077410; /* fundo preto */
+      height: 100vh;
       font-family: Arial, sans-serif;
       background-image: url('simba2.jpg');
-      background-size: cover;     /* cobre toda a tela */
+      background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
+      overflow: hidden;
     }
+
     .container {
-      position: relative; /* necessário para o overlay */
+      position: relative;
       width: 90%;
-      max-width: 80%;
+      max-width: 600px;
     }
+
+    /* Vídeo responsivo */
     video {
       width: 100%;
+      height: auto;
       border-radius: 12px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: block;
     }
 
+    /* Overlay / imagem sobre o vídeo */
     .side-image {
-      position: absolute;   /* posição sobre o vídeo */
-      top: 90%;             /* centraliza verticalmente */
-      left: 10%;            /* centraliza horizontalmente */
-      transform: translate(-50%, -50%); /* ajusta centralização exata */
-      width: 130px;         /* largura da imagem */
-      opacity: 0.9;         /* opcional: transparência */
-      pointer-events: none; /* permite clicar no botão sem bloquear */
+      position: absolute;
+      top: 90%;         /* centraliza verticalmente */
+      left: 10%;        /* centraliza horizontalmente */
+      transform: translate(-50%, -50%);
+      width: 30%;       /* largura proporcional ao container */
+      max-width: 150px; /* garante tamanho máximo em desktop */
+      opacity: 0.9;
+      pointer-events: none;
     }
 
+    /* Botão de confirmação */
     .button {
       position: absolute;
       bottom: 20px;
       left: 50%;
-      bottom: 50px;
       transform: translateX(-50%);
       background-color: #6dc32f;
-      color: rgb(11, 2, 2);
-      font-size: 20px;
+      color: #0b0202;
+      font-size: 18px;
       padding: 12px 24px;
       border: none;
       border-radius: 12px;
@@ -57,30 +62,47 @@
       text-decoration: none;
       text-align: center;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      z-index: 2;
     }
+
     .button:hover {
       background-color: #07f723;
+    }
+
+    /* Media Queries para celular */
+    @media (max-width: 480px) {
+      .side-image {
+        width: 50px;  /* reduz overlay em celular */
+      }
+      .button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="container">
-    
+    <!-- Overlay / imagem sobre o vídeo -->
     <img src="simbarei.png" alt="Imagem lateral" class="side-image">
-    <video src="video.mp4" autoplay muted loop></video>
 
-    <script>
-      const video = document.getElementById('video');
-    
-      // Espera o primeiro clique do usuário
-      document.body.addEventListener('click', () => {
-        video.play();
-      }, { once: true });
-    </script>
-   
-    <b href="https://wa.me/5588997290987?text=Confirmo%20minha%20presen%C3%A7a%20no%201%C2%B0%20anivers%C3%A1rio%20do%20Z%C3%A9." class="button" target="_blank">
+    <!-- Vídeo -->
+    <video id="video" src="video.mp4" autoplay muted loop></video>
+
+    <!-- Botão de confirmação -->
+    <a href="https://wa.me/5588997290987?text=Confirmo%20minha%20presen%C3%A7a%20no%201%C2%B0%20anivers%C3%A1rio%20do%20Z%C3%A9." class="button" target="_blank">
       Confirmar Presença
-    </b>
+    </a>
   </div>
+
+  <!-- Script para ativar som no clique -->
+  <script>
+    const video = document.getElementById('video');
+
+    document.body.addEventListener('click', () => {
+      video.muted = false; // ativa o som
+      video.play();
+    }, { once: true });
+  </script>
 </body>
 </html>
