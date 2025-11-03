@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Convite Digital</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 155vh;
+      background-color: #077410; /* fundo preto */
+      font-family: Arial, sans-serif;
+      background-image: url('simba2.jpg');
+      background-size: cover;     /* cobre toda a tela */
+      background-position: center;
+    }
+    .container {
+      position: relative; /* necessário para o overlay */
+      width: 90%;
+      max-width: 600px;
+    }
+    video {
+      width: 100%;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .side-image {
+      position: absolute;   /* posição sobre o vídeo */
+      top: 90%;             /* centraliza verticalmente */
+      left: 10%;            /* centraliza horizontalmente */
+      transform: translate(-50%, -50%); /* ajusta centralização exata */
+      width: 130px;         /* largura da imagem */
+      opacity: 0.9;         /* opcional: transparência */
+      pointer-events: none; /* permite clicar no botão sem bloquear */
+    }
+
+    .button {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      bottom: 50px;
+      transform: translateX(-50%);
+      background-color: #6dc32f;
+      color: rgb(11, 2, 2);
+      font-size: 20px;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    .button:hover {
+      background-color: #07f723;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    
+    <img src="simbarei.png" alt="Imagem lateral" class="side-image">
+    <video src="video.mp4" autoplay muted loop></video>
+
+    <script>
+      const video = document.getElementById('video');
+    
+      // Espera o primeiro clique do usuário
+      document.body.addEventListener('click', () => {
+        video.play();
+      }, { once: true });
+    </script>
+   
+    <b href="https://wa.me/5588997290987?text=Confirmo%20minha%20presen%C3%A7a%20no%201%C2%B0%20anivers%C3%A1rio%20do%20Z%C3%A9." class="button" target="_blank">
+      Confirmar Presença
+    </b>
+  </div>
+</body>
+</html>
