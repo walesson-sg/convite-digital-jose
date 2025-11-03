@@ -5,20 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Convite Digital</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-      background-image: url('simba2.jpg');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      overflow: hidden;
-    }
+   body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* para que o conteúdo comece no topo */
+    min-height: 100vh;       /* usa min-height em vez de height */
+    font-family: Arial, sans-serif;
+    background-image: url('simba2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;      /* permite scroll vertical, mas não horizontal */
+}
+
 
     .container {
       position: relative;
